@@ -11,14 +11,14 @@
   export CATALOG_SOURCE_NAME="redhat-operators"
   export NAMESPACE="openshift-cnv"
 
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/virtualization/01-operator.yaml | envsubst | oc create -f -
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/operator/approve_ip.sh | bash
+  curl -s https://github.com/catherine-hy/ocp/blob/main/virt/01-operator.yaml | envsubst | oc create -f -
+  curl -s https://github.com/catherine-hy/ocp/blob/main/operator/approve_ip.sh | bash
   ```
 
 ### Create HyperConverged
 * Create HyperConverged and Check
   ```
-  oc create -f https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/virtualization/02-hyperconverged.yaml
+  oc create -f https://github.com/catherine-hy/ocp/blob/main/virt/02-hyperconverged.yaml
 
   oc get pod -n openshift-cnv
   ```

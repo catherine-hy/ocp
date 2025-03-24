@@ -10,8 +10,8 @@
   export CATALOG_SOURCE_NAME="redhat-operators"
   export NAMESPACE="multicluster-engine"
 
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/operator/mce/01-operator.yaml | envsubst | oc create -f -
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/operator/approve_ip.sh | bash
+  curl -s https://github.com/catherine-hy/ocp/blob/main/mce/01-operator.yaml | envsubst | oc create -f -
+  curl -s https://github.com/catherine-hy/ocp/blob/main/operator/approve_ip.sh | bash
   ```
 
 ### Create Multi Cluster Engine Custom Resources
@@ -19,7 +19,7 @@
 * Create the Central instance with the following command:
 
   ```
-  oc create -f https://raw.githubusercontent.com/pancongliang/openshift/main/operator/mce/02-multiclusterengine.yaml
+  oc create -f https://github.com/catherine-hy/ocp/blob/main/mce/02-multiclusterengine.yaml
   ```
 
 ### Check Resources

@@ -11,8 +11,8 @@
   export CHANNEL_NAME="stable-4.16"
   export CATALOG_SOURCE_NAME="redhat-operators"
   export NAMESPACE="openshift-storage"
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/storage/odf/01-operator.yaml | envsubst | oc create -f -
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/operator/approve_ip.sh | bash
+  curl -s https://github.com/catherine-hy/ocp/blob/main/odf/01-operator.yaml | envsubst | oc create -f -
+  curl -s https://github.com/catherine-hy/ocp/blob/main/operator/approve_ip.sh | bash
   ```
 
 ### Label Nodes with Storage Devices
@@ -26,7 +26,7 @@
   ```
   export LOCAL_PV_SIZE="100Gi"
   export STORAGE_CLASS_NAME="local-block"
-  curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/storage/odf/02-storagecluster.yaml | envsubst | oc create -f -
+  curl -s https://github.com/catherine-hy/ocp/blob/main/odf/02-storagecluster.yaml | envsubst | oc create -f -
   ```
 
 ### Verify Installation

@@ -6,8 +6,8 @@
 export CHANNEL_NAME="stable"
 export CATALOG_SOURCE_NAME="redhat-operators"
 export NAMESPACE="openshift-local-storage"
-curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/storage/local-sc/01-operator.yaml | envsubst | oc create -f -
-curl -s https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/operator/approve_ip.sh | bash
+curl -s https://github.com/catherine-hy/ocp/blob/main/localstorage/01-operator.yaml | envsubst | oc create -f -
+curl -s https://github.com/catherine-hy/ocp/blob/main/localstorage/discover-block-device.sh | bash
 ```
 
 ### Add Disks to Worker Nodes
@@ -23,7 +23,7 @@ oc get nodes -l 'node-role.kubernetes.io/worker' -o name | xargs -I {} oc label 
 
 **1. Run the script on the bastion machine to find the disk device path:**  
 ```
-curl -sOL https://raw.githubusercontent.com/pancongliang/openshift/refs/heads/main/storage/local-sc/discover-block-device.sh
+curl -sOL https://github.com/catherine-hy/ocp/blob/main/localstorage/discover-block-device.sh
 
 sh discover-block-device.sh sd*
 ```
@@ -120,7 +120,7 @@ done
 export CHANNEL_NAME="stable"
 export CATALOG_SOURCE_NAME="redhat-operators"
 export NAMESPACE="openshift-local-storage"
-curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/storage/local-sc/01-operator.yaml | envsubst | oc delete -f -
+curl -s https://github.com/catherine-hy/ocp/blob/main/localstorage/01-operator.yaml | envsubst | oc delete -f -
 ```
 
 
@@ -140,7 +140,7 @@ export PV_NODE_NAME="worker01.ocp4.example.com"
 
 ```
 ssh core@${PV_NODE_NAME} sudo mkdir -p -m 777 /mnt/${PV_NAME}
-curl -s https://raw.githubusercontent.com/pancongliang/openshift/main/storage/local-sc/deploy-local-storage.yaml | envsubst | oc apply -f -
+curl -s https://github.com/catherine-hy/ocp/blob/main/localstorage/02-deploy-local-storage.yaml | envsubst | oc apply -f -
 oc get sc
 oc get pvc -n ${NAMESPACE}
 ```
